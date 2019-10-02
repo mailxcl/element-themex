@@ -1,16 +1,16 @@
-var gulp = require('gulp')
-var series = require('run-sequence').use(gulp)
-var task = require('./lib/task')
-var vars = require('./lib/gen-vars')
-var config = require('./lib/config')
+const gulp = require('gulp')
+const series = require('gulp4-run-sequence').use(gulp)
+const task = require('./lib/task')
+const vars = require('./lib/gen-vars')
+const config = require('./lib/config')
 
-var build = function (opts) {
+const build = function (opts) {
   return function () {
     return task.build(Object.assign(opts, {message: 'build element theme'}))
   }
 }
 
-var fonts = function (opts) {
+const fonts = function (opts) {
   return function () {
     return task.fonts(Object.assign(opts, {message: 'build theme font'}))
   }
@@ -33,5 +33,6 @@ exports.run = function (opts, cb) {
   if (typeof cb === 'function') {
     return series('build', 'fonts', cb);
   }
+
   return series('build', 'fonts');
 }
