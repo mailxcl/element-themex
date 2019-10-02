@@ -11,7 +11,7 @@
 ## Installation
 install local or global
 ```shell
-npm i element-theme -D
+npm i element-themex -D
 ```
 
 install `theme-chalk`
